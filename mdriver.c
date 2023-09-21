@@ -168,15 +168,15 @@ int main(int argc, char **argv)
             if ((tracefiles = realloc(tracefiles, 2*sizeof(char *))) == NULL)
 		unix_error("ERROR: realloc failed in main");
 	    strcpy(tracedir, "./"); 
-            tracefiles[0] = strdup(optarg);
-            tracefiles[1] = NULL;
-            break;
+		tracefiles[0] = strdup(optarg);
+		tracefiles[1] = NULL;
+		break;
 	case 't': /* Directory where the traces are located */
 	    if (num_tracefiles == 1) /* ignore if -f already encountered */
-		break;
+			break;
 	    strcpy(tracedir, optarg);
 	    if (tracedir[strlen(tracedir)-1] != '/') 
-		strcat(tracedir, "/"); /* path always ends with "/" */
+			strcat(tracedir, "/"); /* path always ends with "/" */
 	    break;
         case 'a': /* Don't check team structure */
             team_check = 0;
